@@ -35,7 +35,7 @@ script:
 - cp emacs.desktop "${APPDIR}"
 # Building
 - |
-  ./linuxdeployqt "${APPDIR}/usr/share/applications/emacs.desktop" \
+  ./linuxdeployqt "${APPDIR}/emacs.desktop" \
   -updateinformation="gh-releases-zsync|zilti|emacs.AppImage|continuous|Emacs*.AppImage.zsync" \
   -appimage
 - bash upload.sh ./*.AppImage*
