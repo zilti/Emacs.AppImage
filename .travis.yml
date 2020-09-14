@@ -8,7 +8,7 @@ script:
   sudo apt-get install fuse appstream appstream-util git jq make gcc patch unzip \
   gnutls-dev libncurses-dev libgtk-3-dev libxpm-dev libjpeg-dev \
   libgif-dev libtiff5-dev libmailutils-dev libgpm-dev liblcms2-dev imagemagick \
-  libmagickwand-dev libjansson-dev libotf-dev python3.6
+  libmagickwand-dev libjansson-dev libotf-dev python3.6 libpython3.6-dev
 - BUILD_SRC=$(pwd)
 # external downloads
 - wget https://github.com/probonopd/uploadtool/raw/master/upload.sh; chmod +x upload.sh
