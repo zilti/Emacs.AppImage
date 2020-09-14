@@ -22,7 +22,7 @@ script:
 - mkdir AppDir
 - APPDIR="${BUILD_SRC}/AppDir"
 - cd emacs
-- ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --prefix="/opt" --disable-build-details
+- ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --prefix="/opt" --exec-prefix="/opt" --disable-build-details
 - make install
 - mv /opt "${APPDIR}/opt"
 # Preparing AppDir
