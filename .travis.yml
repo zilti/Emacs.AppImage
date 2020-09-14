@@ -21,11 +21,12 @@ script:
 - ls -l
 - mv emacs-27.1 emacs
 # Building Emacs
-- mkdir AppDir
-- APPDIR="${BUILD_SRC}/AppDir"
+- ldconfig /usr/lib /usr/lib/python3.6
 - cd emacs
 - ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --prefix="/opt" --exec-prefix="/opt" --libexecdir="/opt/libexec" --datarootdir="/opt/share" --sysconfdir="/opt/etc" --disable-build-details
 - make install
+- mkdir AppDir
+- APPDIR="${BUILD_SRC}/AppDir"
 - cp -r /opt "${APPDIR}/opt"
 - sudo rm -rf /opt
 # Preparing AppDir
@@ -34,7 +35,6 @@ script:
 - cp emacs.svg "${APPDIR}"
 - cp emacs.png "${APPDIR}"
 - cp emacs.desktop "${APPDIR}"
-- export LD_LIBRARY_PATH="/usr/lib"
 # Building
 - |
   ./linuxdeployqt "${APPDIR}/emacs.desktop" \
