@@ -16,6 +16,7 @@ script:
 - wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64
 # Unpacking
 - tar xzf emacs-*.tar.gz
+- ls -l
 - mv emacs-* emacs
 # Building Emacs
 - mkdir AppDir
