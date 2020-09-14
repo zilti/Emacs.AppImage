@@ -27,7 +27,8 @@ script:
 - sudo ldconfig /usr/lib /usr/lib/python3.6
 - cd emacs
 - ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --disable-build-details
-- make install DESTDIR="${APPDIR}/usr"
+- make install DESTDIR="${APPDIR}"
+- mv "${APPDIR}/local" "${APPDIR}/usr/local"
 # Preparing AppDir
 - cd "${BUILD_SRC}"
 - mkdir "${APPDIR}/usr"
