@@ -1,0 +1,37 @@
+language: c
+sudo: true
+
+script:
+- |
+  sudo apt-get install fuse appstream appstream-util git jq make gcc patch unzip \
+  gnutls-dev libncurses-dev libgtk-3-dev libxpm-dev libjpeg-dev \
+  libgif-dev libtiff5-dev libmailutils-dev libgpm-dev liblcms2-dev imagemagick \
+  libmagickwand-dev libjansson-dev libotf-dev
+- BUILD_SRC=$(pwd)
+# external downloads
+- wget https://github.com/probonopd/uploadtool/raw/master/upload.sh; chmod +x upload.sh
+- wget https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage; mv linuxdeployqt* linuxdeployqt; chmod +x linuxdeployqt
+- wget https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.gz
+- wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/exec-x86_64.so
+- wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64
+# Unpacking
+- tar xzf emacs-*.tar.gz
+- mv emacs-* emacs
+# Building Emacs
+- mkdir AppDir
+- APPDIR="${BUILD_SRC}/AppDir"
+- ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --prefix="${APPDIR}" --exec-prefix="${APPDIR}" --disable-build-details
+- make install
+# Preparing AppDir
+- mkdir "${APPDIR}/usr"
+- cp emacs.svg "${APPDIR}"
+- cp emacs.png "${APPDIR}"
+- cp emacs.desktop "${APPDIR}"
+# Configuring
+- cp exec-x86_64.so "${APPDIR}/usr/exec.so"
+# Building
+- |
+  ./linuxdeployqt "${APPDIR}/emacs.desktop" \
+  -updateinformation="gh-releases-zsync|zilti|emacs.AppImage|continuous|Emacs*.AppImage.zsync" \
+  -appimage
+- bash upload.sh ./*.AppImage*

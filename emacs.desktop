@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Emacs
+StartupWMClass=emacs
+Comment=An extensible, customizable, free/libre text editor — and more.
+GenericName=Text Editor
+Exec=emacs
+Icon=emacs
+Type=Application
+Categories=Utility;TextEditor;
+X-AppImage-Version=27.1
+

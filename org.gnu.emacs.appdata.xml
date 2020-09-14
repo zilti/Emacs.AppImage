@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2014-2020 Free Software Foundation, Inc. -->
+<component type="desktop-application">
+ <id>org.gnu.emacs.desktop</id>
+ <metadata_license>GPL</metadata_license>
+ <name>Emacs</name>
+ <summary>An extensible, customizable, free/libre text editor — and more.</summary>
+ <description>
+  <p>
+    At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.</p>
+ </description>
+ <launchable type="desktop-id">emacs.desktop</launchable>
+ <screenshots>
+  <screenshot type="default">
+  <image type="source" width="962" height="659">https://www.gnu.org/savannah-checkouts/gnu/emacs/images/teaser.png</image>
+ </screenshot>
+ </screenshots>
+ <provides>
+     <binary>emacs-gtk</binary>
+ </provides>
+ <releases>
+     <release version="27.1" date="2020-09-14">
+         <description>Initial AppImage release.</description>
+     </release>
+ </releases>
+ <url type="homepage">https://gnu.org/s/emacs</url>
+ <update_contact>dziltener_AT_lyrion.ch</update_contact>
+ <project_group>Emacs</project_group>
+</component>
