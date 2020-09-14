@@ -28,13 +28,11 @@ script:
 - cd emacs
 - ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --disable-build-details --prefix="" --exec-prefix=""
 - make install DESTDIR="${APPDIR}"
-- mv "${APPDIR}/local" "${APPDIR}/usr/local"
 # Preparing AppDir
 - cd "${BUILD_SRC}"
 - cp emacs.svg "${APPDIR}"
 - cp emacs.png "${APPDIR}"
-- mkdir -p "${APPDIR}/usr/share/applications"
-- cp emacs.desktop "${APPDIR}/usr/share/applications"
+- cp emacs.desktop "${APPDIR}"
 # Building
 - |
   ./linuxdeployqt "${APPDIR}/usr/share/applications/emacs.desktop" \
