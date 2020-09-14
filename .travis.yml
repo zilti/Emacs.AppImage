@@ -28,10 +28,12 @@ script:
 - cd emacs
 - ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --disable-build-details --prefix="" --exec-prefix=""
 - make install DESTDIR="${APPDIR}"
+- cd "${BUILD_SRC}"
+- rm -rf emacs
 # Preparing AppDir
 - cd "${BUILD_SRC}"
-#- cp emacs.svg "${APPDIR}"
-#- cp emacs.png "${APPDIR}"
+- cp emacs.svg "${APPDIR}"
+- cp emacs.png "${APPDIR}"
 #- cp emacs.desktop "${APPDIR}"
 # Building
 - |
