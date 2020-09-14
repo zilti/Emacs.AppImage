@@ -34,7 +34,7 @@ script:
 - cp emacs.svg "${APPDIR}"
 - cp emacs.png "${APPDIR}"
 - cp emacs.desktop "${APPDIR}"
-- export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu"
+- export LD_LIBRARY_PATH="/usr/lib"
 # Building
 - |
   ./linuxdeployqt "${APPDIR}/emacs.desktop" \
