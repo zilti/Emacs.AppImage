@@ -26,7 +26,7 @@ script:
 - mkdir "${APPDIR}/usr"
 - sudo ldconfig /usr/lib /usr/lib/python3.6
 - cd emacs
-- ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --disable-build-details --prefix=""
+- ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --disable-build-details
 - make -j$(nproc) install DESTDIR="$(readlink -f AppDir)"; find AppDir/
 - cd "${BUILD_SRC}"
 - rm -rf emacs
