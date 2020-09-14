@@ -22,7 +22,7 @@ script:
 - mkdir AppDir
 - APPDIR="${BUILD_SRC}/AppDir"
 - cd emacs
-- ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --prefix="/opt" --exec-prefix="/opt" --disable-build-details
+- ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --prefix="/opt" --exec-prefix="/opt" --libexecdir="/opt/libexec" --datarootdir="/opt/share" --sysconfdir="/opt/etc" --disable-build-details
 - make install
 - mv /opt "${APPDIR}/opt"
 # Preparing AppDir
@@ -31,7 +31,6 @@ script:
 - cp emacs.svg "${APPDIR}"
 - cp emacs.png "${APPDIR}"
 - cp emacs.desktop "${APPDIR}"
-- cp exec-x86_64.so "${APPDIR}/usr/exec.so"
 # Building
 - |
   ./linuxdeployqt "${APPDIR}/emacs.desktop" \
