@@ -30,7 +30,6 @@ script:
 - cp emacs.svg "${APPDIR}"
 - cp emacs.png "${APPDIR}"
 - cp emacs.desktop "${APPDIR}"
-# Configuring
 - cp exec-x86_64.so "${APPDIR}/usr/exec.so"
 # Building
 - |
