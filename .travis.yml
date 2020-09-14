@@ -25,6 +25,7 @@ script:
 - ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --prefix="${APPDIR}" --exec-prefix="${APPDIR}" --disable-build-details
 - make install
 # Preparing AppDir
+- cd "${BUILD_SRC}"
 - mkdir "${APPDIR}/usr"
 - cp emacs.svg "${APPDIR}"
 - cp emacs.png "${APPDIR}"
