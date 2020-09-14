@@ -30,12 +30,12 @@ script:
 - make install DESTDIR="${APPDIR}"
 # Preparing AppDir
 - cd "${BUILD_SRC}"
-- cp emacs.svg "${APPDIR}"
-- cp emacs.png "${APPDIR}"
-- cp emacs.desktop "${APPDIR}"
+#- cp emacs.svg "${APPDIR}"
+#- cp emacs.png "${APPDIR}"
+#- cp emacs.desktop "${APPDIR}"
 # Building
 - |
-  ./linuxdeployqt "${APPDIR}/emacs.desktop" \
+  ./linuxdeployqt "${BUILD_SRC}/emacs.desktop" \
   -updateinformation="gh-releases-zsync|zilti|emacs.AppImage|continuous|Emacs*.AppImage.zsync" \
   -appimage
 - bash upload.sh ./*.AppImage*
