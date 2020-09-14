@@ -17,7 +17,7 @@ script:
 # Unpacking
 - tar xzf emacs-*.tar.gz
 - ls -l
-- mv emacs-* emacs
+- mv emacs-27.1 emacs
 # Building Emacs
 - mkdir AppDir
 - APPDIR="${BUILD_SRC}/AppDir"
