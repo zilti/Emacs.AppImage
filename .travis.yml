@@ -17,7 +17,7 @@ script:
 - wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/exec-x86_64.so
 - wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64
 # Unpacking
-- tar xzf emacs-*.tar.gz
+- tar xzf emacs-27.1.tar.gz
 - ls -l
 - mv emacs-27.1 emacs
 # Building Emacs
