@@ -42,9 +42,6 @@ script:
 - cp emacs.png "${APPDIR}/usr/share/icons/hicolor/128x128/apps"
 - mkdir -p "${APPDIR}/usr/share/icons/hicolor/scalable/apps"
 - cp emacs.svg "${APPDIR}/usr/share/icons/hicolor/scalable/apps"
-- mkdir -p "${APPDIR}/usr/bin"
-- cd "${APPDIR}/usr/bin"
-- ln -s ../local/bin/emacs emacs
 # Building
 - cd "${BUILD_SRC}"
 - |
