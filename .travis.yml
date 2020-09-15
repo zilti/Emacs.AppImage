@@ -12,9 +12,7 @@ install:
   libgif-dev libtiff5-dev libmailutils-dev libgpm-dev liblcms2-dev imagemagick \
   libmagickwand-dev libjansson-dev libotf-dev python3.6 python3.6-dev python3.7 libpython3.7-dev
 
-script:
-- BUILD_SRC=$(pwd)
-# external downloads
+before_script:
 - wget https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage; mv linuxdeployqt* linuxdeployqt; chmod +x linuxdeployqt
 - wget https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.gz
 - wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/exec-x86_64.so
@@ -23,6 +21,9 @@ script:
 - tar xzf emacs-27.1.tar.gz
 - ls -l
 - mv emacs-27.1 emacs
+
+script:
+- BUILD_SRC=$(pwd)
 # Building Emacs
 - mkdir AppDir
 - APPDIR="${BUILD_SRC}/AppDir"
