@@ -28,15 +28,16 @@ script:
 - cd emacs
 - ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --disable-build-details
 - cd "${BUILD_SRC}"
-- make -C emacs -j$(nproc) install DESTDIR="$(readlink -f AppDir)"; find AppDir/
+- make -C emacs -j$(nproc) install DESTDIR="$(readlink -f AppDir)"
 - rm -rf emacs
 # Preparing AppDir
 - cd "${BUILD_SRC}"
 - mkdir -p "${APPDIR}/usr/share/applications"
-- mv emacs.desktop "${APPDIR}/usr/share/applications
+- mv emacs.desktop "${APPDIR}/usr/share/applications"
 - mkdir -p "${APPDIR}/usr/share/icons/hicolor/128x128/apps"
 - cp emacs.png "${APPDIR}/usr/share/icons/hicolor/128x128/apps"
-- cp emacs.svg "${APPDIR}"
+- mkdir -p "${APPDIR}/usr/share/icons/hicolor/scalable/apps"
+- cp emacs.svg "${APPDIR}/usr/share/icons/hicolor/scalable/apps"
 # Building
 - |
   ./linuxdeployqt "${APPDIR}/usr/share/applications/emacs.desktop" \
