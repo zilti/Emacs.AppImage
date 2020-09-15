@@ -34,8 +34,9 @@ script:
 - cd "${BUILD_SRC}"
 - mkdir "${APPDIR}/usr/share/applications"
 - mv emacs.desktop "${APPDIR}/usr/share/applications
+- mkdir "${APPDIR}/usr/share/icons/hicolor/128x128/apps"
+- cp emacs.png "${APPDIR}/usr/share/icons/hicolor/128x128/apps"
 - cp emacs.svg "${APPDIR}"
-- cp emacs.png "${APPDIR}"
 # Building
 - |
   ./linuxdeployqt "${APPDIR}/usr/share/applications/emacs.desktop" \
