@@ -32,12 +32,13 @@ script:
 - rm -rf emacs
 # Preparing AppDir
 - cd "${BUILD_SRC}"
+- mkdir "${APPDIR}/usr/share/applications"
+- mv emacs.desktop "${APPDIR}/usr/share/applications
 - cp emacs.svg "${APPDIR}"
 - cp emacs.png "${APPDIR}"
-#- cp emacs.desktop "${APPDIR}"
 # Building
 - |
-  ./linuxdeployqt "${BUILD_SRC}/emacs.desktop" \
+  ./linuxdeployqt "${APPDIR}/usr/share/applications/emacs.desktop" \
   -updateinformation="gh-releases-zsync|zilti|emacs.AppImage|continuous|Emacs*.AppImage.zsync" \
   -appimage
 - bash upload.sh ./*.AppImage*
