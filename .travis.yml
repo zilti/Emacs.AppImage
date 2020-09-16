@@ -10,7 +10,8 @@ install:
   sudo apt-get install fuse appstream appstream-util git jq make gcc patch unzip \
   gnutls-dev libncurses-dev libgtk-3-dev libxpm-dev libjpeg-dev \
   libgif-dev libtiff5-dev libmailutils-dev libgpm-dev liblcms2-dev imagemagick \
-  libmagickwand-dev libjansson-dev libotf-dev python3.6 python3.6-dev python3.7 libpython3.7-dev
+  libmagickwand-dev libjansson-dev libotf-dev python3.6 python3.6-dev python3.7 libpython3.7-dev \
+  texinfo
 
 before_script:
 - wget https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage; mv linuxdeployqt* linuxdeployqt; chmod +x linuxdeployqt
@@ -26,6 +27,7 @@ script:
 - mkdir "${APPDIR}/usr"
 - sudo ldconfig /usr/lib /usr/lib/python3.6
 - cd emacs
+- ./autogen.sh
 - ./configure --with-x --with-x-toolkit=gtk3 --with-mailutils --with-imagemagick --with-cairo --disable-build-details --prefix=/usr
 - cd "${BUILD_SRC}"
 - make -C emacs -j$(nproc) install DESTDIR="$(readlink -f AppDir)"; find AppDir/
