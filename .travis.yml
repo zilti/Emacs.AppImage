@@ -14,13 +14,9 @@ install:
 
 before_script:
 - wget https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage; mv linuxdeployqt* linuxdeployqt; chmod +x linuxdeployqt
-- wget https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.gz
 - wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/exec-x86_64.so
 - wget https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64
-# Unpacking
-- tar xzf emacs-27.1.tar.gz
-- ls -l
-- mv emacs-27.1 emacs
+- cd emacs; git submodule update; cd ..
 
 script:
 - BUILD_SRC=$(pwd)
@@ -50,7 +46,7 @@ script:
   ./linuxdeployqt "AppDir/usr/share/applications/emacs.desktop" \
   -updateinformation="gh-releases-zsync|zilti|emacs.AppImage|continuous|Emacs*.AppImage.zsync" \
   -appimage
-  
+
 after_success:
 - wget https://github.com/probonopd/uploadtool/raw/master/upload.sh; chmod +x upload.sh
 - bash upload.sh ./*.AppImage*
